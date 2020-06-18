@@ -7,14 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
+    FirebaseAuth firebaseAuth;
     Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        firebaseAuth = FirebaseAuth.getInstance();
 
         intent = new Intent(MainActivity.this, MapsActivity.class);
     }
@@ -90,5 +93,11 @@ public class MainActivity extends AppCompatActivity {
 
         intent.putExtras(bundle);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        firebaseAuth.signOut();
     }
 }

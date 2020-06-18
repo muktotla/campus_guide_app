@@ -60,6 +60,7 @@ public class Login extends AppCompatActivity {
 
                             Intent intent = new Intent(Login.this, MainActivity.class);
                             startActivity(intent);
+                            finish();
                         }
                         else {
                             Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
