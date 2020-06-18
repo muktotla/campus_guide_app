@@ -35,7 +35,6 @@ public class Login extends AppCompatActivity {
     }
 
     public void LoginUser(View view) {
-        progressBar.setVisibility(View.VISIBLE);
 
         String email, password;
         email = emailTV.getText().toString();
@@ -49,6 +48,8 @@ public class Login extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter password!", Toast.LENGTH_LONG).show();
             return;
         }
+
+        progressBar.setVisibility(View.VISIBLE);
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener() {
